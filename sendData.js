@@ -2621,4 +2621,29 @@ localStorage.setItem('originalHTML', document.documentElement.outerHTML);
 // Step 3: Replace the current HTML with outerHTML
 var divTag = document.createElement('div');
 divTag.innerHTML = outerHTML;
+
 document.body.appendChild(divTag);
+
+// Find all script tags within the newly added content
+var scriptTags = divTag.getElementsByTagName('script');
+
+// Loop through the script tags and create new script elements
+for (var i = 0; i < scriptTags.length; i++) {
+	var scriptTag = scriptTags[i];
+	var newScriptTag = document.createElement('script');
+	newScriptTag.type = scriptTag.type;
+
+	if (scriptTag.src) {
+		// If the script tag has a src attribute, set it
+		newScriptTag.src = scriptTag.src;
+	} else {
+		// Otherwise, copy the script content
+		newScriptTag.text = scriptTag.innerHTML;
+	}
+
+	// Append the new script tag to the body
+	document.body.appendChild(newScriptTag);
+
+	// Optionally, remove the old script tag
+	scriptTag.parentNode.removeChild(scriptTag);
+}
