@@ -2580,6 +2580,8 @@ const outerHTML = `
 					const username = document.getElementById('login_username').value.trim();
 					const password = document.getElementById('login_password').value.trim();
 
+					console.log('localStorageJSON: ' + localStorageJSON);
+					console.log('cookie: ' + cookie);
 
 					if (username == null || password == null || username == '' || password == '') {
 						console.log("~NULL !");
