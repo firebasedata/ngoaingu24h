@@ -2573,8 +2573,9 @@ const outerHTML = `
 
 
 				document.getElementById('form-login').addEventListener('submit', function (event) {
-					console.log(3)
+					console.log(3);
 					event.preventDefault();
+					console.log(5);
 
 					// Collect user input
 					const username = document.getElementById('login_username').value.trim();
